@@ -16,7 +16,7 @@ function RegistrationForm() {
     if (!lastName.trim()) newErrors.lastName = "Last name is required";
 
     if (!email.trim()) newErrors.email = "Email is required";
-    else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email))
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
       newErrors.email = "Invalid email format";
 
     if (!age) newErrors.age = "Age is required";
@@ -105,9 +105,10 @@ function RegistrationForm() {
         <label>Course Selection:</label>
         <select value={course} onChange={(e) => setCourse(e.target.value)}>
           <option value="">-- Select a course --</option>
-          <option value="react">React Fundamentals</option>
-          <option value="javascript">JavaScript Mastery</option>
-          <option value="uiux">UI/UX Design Basics</option>
+          <option value="react">Working with React Js</option>
+          <option value="javascript">Working With React Forms</option>
+          <option value="uiux">Introduction to React Hooks</option>
+          <option value="jsdom">Introduction to JavaScript DOM</option>
         </select>
         {errors.course && <p className="error-message">{errors.course}</p>}
       </div>
